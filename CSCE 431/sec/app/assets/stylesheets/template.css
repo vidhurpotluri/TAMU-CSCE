@@ -1,0 +1,198 @@
+.form {
+	width: 70vw;
+}
+
+/*
+.input {
+	width: 250px;
+	height: 25px;
+	border-radius: 7px;
+	font-size: 16px;
+	box-shadow: 0px 10px 14px -7px #2b3628;
+}
+
+/*
+form {
+	margin: 0 auto;
+	text-align: center;
+}
+*/
+
+/*
+#butsave {
+	margin: 0 auto;
+	text-align: center;
+	padding: 14px 14px 3px 14px;
+}
+
+label {
+	padding: 14px 14px 3px 0;
+	display: inline-block;
+	color: white;
+	font-family: Arial;
+}
+
+/*
+.container {
+	
+	padding: 40px 20px 0px 12px;
+	
+	margin: 0 auto;
+	text-align: center;
+}
+*/
+/*
+.button1 {
+	padding: 14px 14px 3px 0;
+	align: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.checkbox1 {
+	margin: 0 auto;
+	text-align: center;
+	font-family: Arial;
+}
+
+#chk {
+	width: 15px;
+	height: 15px;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+
+	top: -3px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 7px;
+}
+
+.button2 {
+	box-shadow: 0px 10px 14px -7px #2b3628;
+	background: linear-gradient(to bottom, #005050 5%, #005055 100%);
+	background-color: #005050;
+	border-radius: 7px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 9px 51px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #a8adac;
+	position: center;
+
+	align: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.button2:hover {
+	background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color: #6c7c7c;
+}
+
+.button2:active {
+	position: relative;
+	top: 1px;
+}
+
+.searchbutton1 {
+	background-color: #005050;
+	border-radius: 7px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 5px 19px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #a8adac;
+}
+
+.searchbutton1:hover {
+	background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color: #6c7c7c;
+}
+
+.searchbutton1:active {
+	position: relative;
+	top: 1px;
+}
+
+.searchbutton {
+	box-shadow: 0px 10px 14px -7px #000000;
+	background: linear-gradient(to bottom, #500000 5%, #400101 100%);
+	background-color: #500000;
+	border-radius: 8px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 7px 21px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #3d768a;
+}
+
+.searchbutton:hover {
+	background: linear-gradient(to bottom, #400101 5%, #500000 100%);
+	background-color: #400101;
+}
+
+.searchbutton:active {
+	position: relative;
+	top: 1px;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 7px;
+	background-color: #500000;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #555;
+}
+
+.topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #500000;
+	color: white;
+}
+
+a:link {
+	color: white;
+}
+a:visited {
+	color: white;
+}
+
+/* .other-links {
+	color: white;
+	font
+}
+
+.other-links:visited {
+	color: white;
+} */

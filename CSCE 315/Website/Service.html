@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Vidhur Potluri: Service</title>		
+
+<!-- CSS Code --->
+<style>
+body {
+	background-color:white;
+}
+
+div {
+	align-items: center;
+	border-bottom-width: 0.02;
+	border-bottom-color: grey;
+	border-bottom-style: solid;
+}
+#ha {
+	 font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+	 font-size:3em;
+	 font-weight:400;
+	 letter-spacing:0em;
+	 text-align:center;
+	 line-height:0em;
+	 color:#b48811;
+	 padding:1em;
+	 margin-bottom:2px
+}	
+
+#ha a:link {
+	color:#b48811;
+	text-decoration: none;
+}
+
+#ha a:visited{
+	color:#b48811;
+}
+
+#ha a:active{
+	color:#b48811;
+}
+
+#ha a:hover{
+	text-decoration: underline;
+}
+
+#pages {
+	background-color: #f2f2f2;
+	line-height:2em;
+	text-align:center;
+}
+
+#pagetitle {
+	margin-top: 2em;
+	font-weight:100;
+	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+	text-align:center;
+	color:#CC9900;
+	
+}
+#blank {
+	line-height: 2em;
+	margin-bottom: auto;
+	border: solid;
+	border-color: grey;
+	border-width: 0.05em;
+
+}
+
+#pages a:link {
+font-family: sans-serif;
+font-size:15px;text-decoration:none;color:grey;
+padding-left:3em;
+padding-right: 3em;
+}
+#pages a:visited {
+color:grey;
+}
+#pages a:hover {
+color:#000000;
+text-decoration:underline;
+}
+#pages .active {
+color:#000000;
+font-weight:bold;
+}
+
+p a:link {
+color:#996515;
+text-decoration: underline;
+
+}
+p a:visited {
+color:#996515;
+}
+p a:hover {
+color:black;
+text-decoration:bold;
+}
+
+p {
+	font-family: sans-serif;
+	text-align: left;
+	font-size: 15px;
+	word-spacing: 4px;
+	padding-top: 1em;
+	padding-bottom:0em;
+	margin-left: 20em;
+	margin-right:20em;
+	line-height: 2em;
+}
+
+
+img {
+	padding-top:1em;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	width : 550;
+	height:350;
+}
+#Button {
+ /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  background-color: #f2f2f2; /* Set a background color */
+  color: #b48811; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 14px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+
+<script type="text/javascript">
+
+//Get the button:
+myButton = document.getElementById("Button");
+
+
+function backToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+</head>
+
+<body>
+<!-- Header that says "Vidhur Potluri" --->
+<div id = "ha"> <a href="index.html"> VIDHUR POTLURI </a></div>
+<div id = "pages">
+	<a href = "About.html"> ABOUT ME </a> 
+	<a id = "work" href = "Career.html"> CAREER </a>
+	<a id = "portfolio" href = "Portfolio.html"> PORTFOLIO </a> 
+	<a id = "service" class = "active" href = "Service.html"> SERVICE </a> 
+	<a id = "contact" href = "Contact.html"> CONTACT </a> 
+
+</div>
+
+
+<h2 id = "pagetitle"> SERVICE </h2>
+
+<img src="serve.jpg">
+
+<div>
+	<p> 1) As service chair of Beta Chi Theta, I have planned fundraising events to raise awareness for heart disease, and was actively involved in charitable initiatives such as the Adopt-a-grandparent program.
+	<p> 2) Taught Mathematics and English at Government schools for the underprivileged in Secunderabad, India.
+	<p> 3) I volunteered at a hospital named <a href="http://vijayahealthcare.com">Vijaya Health Care</a> in Hyderabad where I helped doctors in the emergency rooms and also served as a receptionist.
+
+</div>
+<button onclick="backToTop()" id="Button" title="Go to top">Back to top</button>
+<div id = "blank"> </div>
+</body>	
+</html>

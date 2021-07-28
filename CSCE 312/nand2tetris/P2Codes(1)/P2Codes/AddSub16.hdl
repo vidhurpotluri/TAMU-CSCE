@@ -1,0 +1,19 @@
+// File name: AddSub16.HDL
+// Name: Vidhur Potluri
+
+
+CHIP AddSub16 {
+	IN
+		a[16], b[16],
+		sel;
+
+	OUT
+		out[16];
+
+	PARTS:
+	Add16(a = a, b = b, out = AplusB);
+	Negation(in = b, out = notB);
+	Add16(a = a, b = notB, out = AminusB);
+	Mux16(a = AplusB, b = AminusB, sel = sel, out = out);
+
+}

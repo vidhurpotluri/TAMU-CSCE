@@ -1,0 +1,33 @@
+<div class="text-field">
+    <%= form.label :email %> <br />
+    <%= form.text_field :email, type: 'email', class: "form-group form-control", :required => true %>
+    </div>
+
+<div class="password-field">
+    <%= form.label :password %> <br />
+    <%= form.password_field :password, class: "form-group form-control", :required => true %>
+    </div>
+
+<div class="text-field">
+  <%= form.label :first_name %> <br />
+  <%= form.text_field :first_name, class: "form-group form-control", :required => true %>
+  </div>
+
+<div class="text-field">
+  <%= form.label :last_name %> <br />
+  <%= form.text_field :last_name, class: "form-group form-control", :required => true %>
+  </div>
+
+<div class="text-field">
+  <%= form.label :phone_number %> <br />
+  <%= form.text_field :phone_number, class: "form-group form-control", :required => true %>
+  </div>
+
+<div class="text-field">
+  <%= form.label :grad_year %> <br />
+  <%= form.number_field :grad_year, class: "form-group form-control", min: 1900, max: 2500, :required => true  %>
+  </div>
+
+<div>
+    <%= form.submit %>
+</div>

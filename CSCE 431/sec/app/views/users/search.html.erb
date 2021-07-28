@@ -1,0 +1,241 @@
+<html lang="en">
+
+<head>
+    <style>
+        /*
+        body {
+            padding-top: 50px;
+        }
+    */
+        .dropdown.dropdown-lg .dropdown-menu {
+            margin-top: -1px;
+            padding: 6px 20px;
+        }
+
+        .input-group-btn .btn-group {
+            display: flex !important;
+        }
+
+        .btn-group .btn {
+            border-radius: 0;
+            margin-left: -1px;
+        }
+
+        .btn-group .btn:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .btn-group .form-horizontal .btn[type="submit"] {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .form-group .form-control:last-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .navbar-custom {
+            background-color: #500000;
+            color: #fffca1;
+        }
+
+        @media screen and (min-width: 768px) {
+            #adv-search {
+                width: 500px;
+                margin: 0 auto;
+            }
+
+            .dropdown.dropdown-lg {
+                position: static !important;
+            }
+
+            .dropdown.dropdown-lg .dropdown-menu {
+                min-width: 500px;
+            }
+        }
+
+        .dropdown.dropdown-lg .dropdown-menu {
+            margin-top: -1px;
+            padding: 6px 20px;
+        }
+
+        .input-group-btn .btn-group {
+            display: flex !important;
+        }
+
+        .btn-group .btn {
+            border-radius: 0;
+            margin-left: -1px;
+        }
+
+        .btn-group .btn:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .btn-group .form-horizontal .btn[type="submit"] {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .form-group .form-control:last-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .navbar-custom {
+            background-color: #500000;
+            color: #fffca1;
+        }
+
+        @media screen and (min-width: 768px) {
+            #adv-search {
+                width: 500px;
+                margin: 0 auto;
+            }
+
+            .dropdown.dropdown-lg {
+                position: static !important;
+            }
+
+            .dropdown.dropdown-lg .dropdown-menu {
+                min-width: 500px;
+            }
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- For the Navigation bar -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- For the search bar -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand" href="#">SEC Center</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item invisible">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="users/edit">Profile</a> -->
+                <%= link_to t(".Profile"), sign_in_path, :method => :get, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+                <%= link_to t(".Search"), users_search_path(:query), :method => :get, class: "nav-link" %>
+                <!-- <a class="nav-link" href="users/search/query">Search Members</a> -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link invisible" href="#">About</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to t(".sign_out"), sign_out_path, :method => :delete, class: "navbar-custom" %></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<%= form_tag(users_search_path, :method => "get", id: "search-form",) do %>
+<!--
+<div style="text-align: center">
+    <%= select_tag(:role, options_for_select([['EC Chairholder(all)', 1], ['EC Chairholder(internal)', 2], ['EC Chairholder(external)', 3], ['EC Chairholder(development)', 4], ['Role...', 5]], 5)) %>
+    <%= select_tag(:major, options_for_select([['Petro Engr', 1], ['Aero Engr', 2], ['Biol & Agric Engr', 3], ['Biomed Engr', 4], ['Chem Engr', 5], ['Civ & Env Engr', 6], ['Comp Sci & Engr', 7], ['Elec & Comp Engr', 8], ['Eng Tech & Indus Dist Engr', 9], ['Indus & Syst Engr', 10], ['Mat Sci & Engr', 11], ['Mech Engr', 12], ['Multi Dis Engr', 13], ['Nuc Engr', 14], ['Ocean Engr', 15], ['Major...', 16]], 16)) %>
+    <%= select_tag(:status, options_for_select([['Current Member', 1], ['Alumni', 2], ['Status...', 3]], 3)) %>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group" id="adv-search">
+                <!-- <input type="text" class="form-control" placeholder="Search for snippets" /> -->
+
+                <%= text_field_tag :search, params[:search], placeholder: "Search for users..", :required => 'required', class: "form-control" %>
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <%= submit_tag "Search", class: "btn btn-primary", :name => nil %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if @users and !@users.empty? %>
+<div class="container">
+    <div class="row" align = "center">
+        <div class="col-md-12">		
+			<%= button_to "Send emails", users_mail_path(@users.pluck(:id)), method: :post %>
+       
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+
+
+    <br>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>SEC Role</th>
+                    <th>Major</th>
+                    <th>Link</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if @users and !@users.empty? %>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.last_name %></td>
+                    <td><%= user.phone_number %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.company %></td>
+                    <td><%= user.role %></td>
+                    <td><%= user.major %></td>
+                    <td><%=link_to('View Profile', user_path(user.id))%>
+                </tr>
+                <% end %>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+</html>

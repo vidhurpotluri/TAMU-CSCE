@@ -1,0 +1,51 @@
+env:
+  RUBY_VERSION: 2.6.6
+
+name: Unit Tests
+on: [push,pull_request]
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install PostgreSQL client
+        run: sudo apt install libpq-dev
+      - name: Install Ruby Bundler
+        run: gem install bundler
+      - name: Bundle install
+        run: |
+          bundle install --jobs 4 --retry 3
+          yarn install --check-files
+          bundle exec rails webpacker:install
+      - name: Initialize Test Database
+        run: |
+          cp config/database.yml.github-actions config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+      - name: Run RSpec tests
+        # delete rails generate rspec:install once we have it configured in master
+        run: COVERAGE=true bundle exec rspec --require rails_helper
+        # delete rails generate rspec:install once we have it configured in master
+        # run: |
+        #   rails generate rspec:install
+        #   COVERAGE=true bundle exec rspec --require rails_helper
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres

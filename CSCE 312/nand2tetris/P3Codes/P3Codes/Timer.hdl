@@ -1,0 +1,29 @@
+// Timer circuit
+// Name: Vidhur Potluri
+
+CHIP Timer{
+	OUT out[4];
+
+	PARTS:
+	// Out[0]
+	Not(in = in0, out = out0);
+
+	// Out[1]
+	Xor(a = in0, b = in1, out = out1);
+
+	// Out[2]
+	And(a = in0, b = in1, out = and1);
+	Xor(a = and1, b = in2, out = out2);
+
+	// Out[3]
+	And(a = in0, b = in1, out = and2);
+	And(a = and2, b = in2, out = and3);
+	Xor(a = and3, b = in3, out = out3);
+
+	//DFFs for each output bit
+	DFF(in = out0, out = out[0], out = in0);
+	DFF(in = out1, out = out[1], out = in1);
+	DFF(in = out2, out = out[2], out = in2);
+	DFF(in = out3, out = out[3], out = in3);	
+
+}

@@ -1,0 +1,89 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/LeftLogicBitshift.hdl
+
+/**
+ * Shift x left y bits, new bits are filled in with 0, you may not use any DFF or clocked chip in this implementation
+ * You may assume the maximum shift is 8-bit
+ */
+
+CHIP LeftLogicBitshift {
+    IN x[16], y[16];
+    OUT out[16];
+
+    PARTS:
+   // Put you code here:
+   // First set of multiplexors
+    Mux(a = x[0], b = false, sel = y[0], out = a);
+    Mux(a = x[1], b = x[0], sel = y[0], out = b);
+    Mux(a = x[2], b = x[1], sel = y[0], out = c);
+    Mux(a = x[3], b = x[2], sel = y[0], out = d);
+   	Mux(a = x[4], b = x[3], sel = y[0], out = e);
+    Mux(a = x[5], b = x[4], sel = y[0], out = f);
+    Mux(a = x[6], b = x[5], sel = y[0], out = g);
+    Mux(a = x[7], b = x[6], sel = y[0], out = h);
+    Mux(a = x[8], b = x[7], sel = y[0], out = i);
+    Mux(a = x[9], b = x[8], sel = y[0], out = j);
+    Mux(a = x[10], b = x[9], sel = y[0], out = k);
+    Mux(a = x[11], b = x[10], sel = y[0], out = l);
+   	Mux(a = x[12], b = x[11], sel = y[0], out = m);
+    Mux(a = x[13], b = x[12], sel = y[0], out = n);
+    Mux(a = x[14], b = x[13], sel = y[0], out = o);
+    Mux(a = x[15], b = x[14], sel = y[0], out = p);
+
+    // Second set of multiplexors 
+    Mux(a = a, b = false, sel = y[1], out = a1);
+    Mux(a = b, b = false, sel = y[1], out = b1);
+    Mux(a = c, b = a, sel = y[1], out = c1);
+    Mux(a = d, b = b, sel = y[1], out = d1);
+   	Mux(a = e, b = c, sel = y[1], out = e1);
+    Mux(a = f, b = d, sel = y[1], out = f1);
+    Mux(a = g, b = e, sel = y[1], out = g1);
+    Mux(a = h, b = f, sel = y[1], out = h1);
+    Mux(a = i, b = g, sel = y[1], out = i1);
+    Mux(a = j, b = h, sel = y[1], out = j1);
+    Mux(a = k, b = i, sel = y[1], out = k1);
+    Mux(a = l, b = j, sel = y[1], out = l1);
+   	Mux(a = m, b = k, sel = y[1], out = m1);
+    Mux(a = n, b = l, sel = y[1], out = n1);
+    Mux(a = o, b = m, sel = y[1], out = o1);
+    Mux(a = p, b = n, sel = y[1], out = p1);
+
+    // Third set of multiplexors 
+    Mux(a = a1, b = false, sel = y[2], out = a2);
+    Mux(a = b1, b = false, sel = y[2], out = b2);
+    Mux(a = c1, b = false, sel = y[2], out = c2);
+    Mux(a = d1, b = false, sel = y[2], out = d2);
+   	Mux(a = e1, b = a1, sel = y[2], out = e2);
+    Mux(a = f1, b = b1, sel = y[2], out = f2);
+    Mux(a = g1, b = c1, sel = y[2], out = g2);
+    Mux(a = h1, b = d1, sel = y[2], out = h2);
+    Mux(a = i1, b = e1, sel = y[2], out = i2);
+    Mux(a = j1, b = f1, sel = y[2], out = j2);
+    Mux(a = k1, b = g1, sel = y[2], out = k2);
+    Mux(a = l1, b = h1, sel = y[2], out = l2);
+   	Mux(a = m1, b = i1, sel = y[2], out = m2);
+    Mux(a = n1, b = j1, sel = y[2], out = n2);
+    Mux(a = o1, b = k1, sel = y[2], out = o2);
+    Mux(a = p1, b = l1, sel = y[2], out = p2);
+
+    //Fourth set of multiplexors
+   	Mux(a = a2, b = false, sel = y[3], out = out[0]);
+    Mux(a = b2, b = false, sel = y[3], out = out[1]);
+    Mux(a = c2, b = false, sel = y[3], out = out[2]);
+    Mux(a = d2, b = false, sel = y[3], out = out[3]);
+   	Mux(a = e2, b = false, sel = y[3], out = out[4]);
+    Mux(a = f2, b = false, sel = y[3], out = out[5]);
+    Mux(a = g2, b = false, sel = y[3], out = out[6]);
+    Mux(a = h2, b = false, sel = y[3], out = out[7]);
+    Mux(a = i2, b = a2, sel = y[3], out = out[8]);
+    Mux(a = j2, b = b2, sel = y[3], out = out[9]);
+    Mux(a = k2, b = c2, sel = y[3], out = out[10]);
+    Mux(a = l2, b = d2, sel = y[3], out = out[11]);
+   	Mux(a = m2, b = e2, sel = y[3], out = out[12]);
+    Mux(a = n2, b = f2, sel = y[3], out = out[13]);
+    Mux(a = o2, b = g2, sel = y[3], out = out[14]);
+    Mux(a = p2, b = h2, sel = y[3], out = out[15]);    
+
+}

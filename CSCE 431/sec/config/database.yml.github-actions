@@ -1,0 +1,9 @@
+# because maybe we want a different configuration for our CI database for github actions? IDK
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: github-actions
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>

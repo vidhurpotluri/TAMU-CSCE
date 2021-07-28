@@ -1,0 +1,18 @@
+<% if !flash[:notice].blank? %>
+	<div class = "notice">
+		<%= flash[:notice] %>
+	</div>
+<%end%>
+
+<h1>Home Page - Book Collection</h1>
+
+<%= button_to "Add new book", new_book_path, method: :get %>
+<ul>
+	<% @books1.each do |book|%>
+		<li><%= link_to book.title, book_path(book)%></li> 
+		<%= button_to "Edit", edit_book_path(book), method: :get%>
+		<%= button_to "Delete", url_for(action: :destroy,id: book.id),method: :delete, data: {confirm: "Are you sure?"} %>
+
+		<br>
+	<%end%>
+</ul>

@@ -1,0 +1,43 @@
+// Traffic controller circuit
+// Name: Vidhur Potluri
+
+CHIP Traffic{
+	OUT out[2];
+
+	PARTS:
+
+	Timer(out[0] = t0, out[1] = t1, out[2] = t2, out[3] = t3);
+	// out[0]
+
+
+	// out[0]
+	Not(in = t0, out = nott0);
+	Not(in = t2, out = nott2);
+	And(a = nott2, b = t1, out = and1);
+	And(a = and1, b = nott0, out = and2);
+	
+	And(a = t0, b = t1, out = and3);
+	And(a = and3, b = nott2, out = and4);
+	And(a = and4, b = t3, out = and5);
+	Not(in = and5, out = not1);
+	And(a = o0, b = not1, out = and6);
+
+	Or(a = and6, b = and2, out = Or1);
+
+	// out[1]
+	And(a = nott0, b = t1, out = and7);
+	And(a = and7, b = t2, out = and8);
+	And(a = and8, b = t3, out = and9);
+	Not(in = and9, out = not2);
+	And(a = o1, b = not2, out = and10);
+
+	And(a = t0, b = t1, out = and11);
+	And(a = and11, b = nott2, out = and12);
+	And(a = t3, b = and12, out = and13);
+	Or(a = and13, b = and10, out = Or2);
+
+	// DFFs
+	DFF(in = Or1, out = out[0], out = o0);
+	DFF(in = Or2, out = out[1], out = o1);
+
+}

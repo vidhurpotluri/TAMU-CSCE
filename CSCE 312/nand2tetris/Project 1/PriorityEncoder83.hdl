@@ -1,0 +1,46 @@
+//Priority Encoder
+//input is 8-bit long array
+//output is 3-bit long array
+
+CHIP PriorityEncoder83 {
+	IN a[8];
+	OUT out[3], idle;
+
+	PARTS:
+	//Your code starts here
+	//Out - 2: Out = a7+a6+a5+a4
+	Or(a = a[7], b = a[6], out = ab);
+	Or(a = ab, b = a[5], out = cd);
+	Or(a = cd, b = a[4], out = out[2]);
+
+	//Out - 1: Out = (a5'a4'(a2+a3)+a6+a7)
+	Not(in = a[5], out = nota5);
+	Not(in = a[4], out = nota4);
+	And(a = nota4, b = nota5, out = andna45);
+	Or(a = a[2], b = a[3], out = ora2a3);
+	And(a = andna45, b = ora2a3, out = and1);
+	Or(a = a[6], b = a[7], out = ora6a7);
+	Or(a = and1, b = ora6a7, out = out[1]);
+
+	//Out - 0: Out = (a6'(a4'a2'a1+a4'a3+a5)+a7) 
+	Not(in = a[2], out = nota2);
+	And(a = nota4, b = a[3], out = andna4a3);
+	And(a = nota4, b = nota2, out = andna4na2);
+	And(a = andna4na2, b = a[1], out = and2);
+	Or(a = a[5], b = andna4a3, out = or1);
+	Or(a = and2, b = or1, out = or2);
+	Not(in = a[6], out = nota6);
+	And(a = or2, b = nota6, out = and3);
+	Or(a = a[7], b = and3, out = out[0]);
+
+
+	//idle: Idle = (a7+a6+a5+a4+a3+a2+a1+a0)'
+	Or(a = a[0], b = a[1], out = abcd);
+    Or(a = abcd, b = a[2], out = dcba);
+    Or(a = dcba, b = a[3], out = efgh);
+    Or(a = efgh, b = a[4], out = hij);
+    Or(a = hij, b = a[5], out = klm);
+    Or(a = klm, b = a[6], out = nop);
+    Or(a = nop, b = a[7], out = pqrs);
+    Not(in = pqrs, out = idle);
+}

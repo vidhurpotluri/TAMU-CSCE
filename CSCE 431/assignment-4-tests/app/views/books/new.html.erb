@@ -1,0 +1,22 @@
+<h1>New Book</h1>
+
+
+<%= form_for @book do |f|%>
+	<%= f.label :title%>
+	<%= f.text_field :title %>
+	<%= f.label :author%>
+	<%= f.text_field :author %>
+	<%= f.label :genre%>
+	<%= f.select :genre, ['Action', 'Adventure', 'Fantasy', 'Horror', 'Comedy', 'Children', 'Romance', 'Historical'] %>
+	<%= f.label :price%>
+	<%= f.number_field :price %>
+	<%= f.label :published%>
+	<%= f.date_select :published, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year - 100}, {required: true} %>
+
+	<%= f.submit%>
+
+<br>
+
+<li> <%= link_to "Return to Home Page", books_path %></li>
+
+<%end%>

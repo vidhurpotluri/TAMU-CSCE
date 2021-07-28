@@ -1,0 +1,56 @@
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <style>
+        .navbar-custom {
+        background-color: #500000;
+        color: #fffca1;
+        }
+      </style>
+      <!-- For the Navigation bar -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+          <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+          <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <a class="navbar-brand" href="#">Forgot password</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+
+
+<%= form_tag(password_resets_path, :method => "post", id: "reset-password-form",) do %>
+<div class='container' style="margin-left: auto;margin-right: auto; width: 40vw">
+  <div id="clearance" class="reset-password">
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+        <br />
+      </div>
+    <% end %>
+    <div>
+      <%= label_tag :email %> <br />
+      <%= text_field :email, params[:email], class: "form-group form-control" %>
+        <%= submit_tag "Reset Password" %>
+      <% end %>
+    </div>
+    
+
+    
+    <div class="other-links">
+      </br>
+      <%= link_to t(".sign_up"), sign_up_path %> </br>
+      <%= link_to t(".sign_in"), sign_in_path %>
+
+    </div>
+  </div>
+</div>
